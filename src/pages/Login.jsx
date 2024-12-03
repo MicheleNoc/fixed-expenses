@@ -47,7 +47,7 @@ export default function Login() {
     {/* Immagine di sfondo */}
     <div className="absolute inset-0 z-0">
         <img
-            src={`${process.env.PUBLIC_URL}/backgroundmotorcare.jpg`}
+            src={`${process.env.PUBLIC_URL}/background.jpg`}
             alt="background"
             className="w-full h-full object-cover blur-sm opacity-90 dark:opacity-60"
         />
