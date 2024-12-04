@@ -6,6 +6,8 @@ const DashboardCosti = () => {
     const { getCurrentUserId } = useAuth();
     const [costoTotaleMensile, setCostoTotaleMensile] = useState(0);
     const [costoTotaleAnnuale, setCostoTotaleAnnuale] = useState(0);
+    const [numRate, setNumRate] = useState(0);
+    const [numAbbonamenti, setNumAbbonamenti] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -43,10 +45,12 @@ const DashboardCosti = () => {
                 const totaleMensileAbbonamenti = abbonamentiData.reduce((acc, abbonamento) => acc + abbonamento.importo, 0);
 
                 const totaleMensile = totaleMensileRate + totaleMensileAbbonamenti;
-                const totaleAnnuale = totaleMensile * 12;
+                const totaleAnnuale = totaleMensile * rateData.durata;
 
                 setCostoTotaleMensile(totaleMensile);
                 setCostoTotaleAnnuale(totaleAnnuale);
+                setNumRate(rateData.length);
+                setNumAbbonamenti(abbonamentiData.length);
                 setLoading(false);
             } catch (error) {
                 console.error("Errore nel recupero dei costi:", error);
@@ -78,7 +82,9 @@ const DashboardCosti = () => {
             <div className="relative z-10 max-w-4xl mx-auto p-4">
                 <h2 className="text-3xl font-bold text-center mb-4">Costi Totali</h2>
                 <div className="mb-6">
-                    <h3 className="text-2xl font-semibold text-center mb-4">Spese Totali Mensili</h3>
+                    <h3 className="text-2xl font-semibold text-center mb-4">
+                        Spese Totali Mensili ({numRate + numAbbonamenti} elementi)
+                    </h3>
                     <p className="text-center text-xl text-gray-900 dark:text-white">{costoTotaleMensile.toFixed(2)} €</p>
                 </div>
                 <div className="mb-6">

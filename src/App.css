@@ -6,6 +6,9 @@
   text-align: center;
 }
 
+input.hide-caret, textarea.hide-caret {
+  caret-color: transparent; /* Nasconde il cursore */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
