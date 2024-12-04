@@ -1,7 +1,10 @@
 //componente react a cardviews per visualizzare le rate
 import React from 'react';
 
-const CardAbbonamento = ({ abbonamento }) => {
+const CardAbbonamento = ({ abbonamento , onDelete }) => {
+    const handleDelete = () => {
+        onDelete(abbonamento.id);
+    };
 
     return (
 <div className="bg-white rounded-lg shadow-md p-4">
@@ -18,6 +21,12 @@ const CardAbbonamento = ({ abbonamento }) => {
             : abbonamento.importo * (abbonamento.durata || 1)}{" "}
         €
     </p>
+    <button
+                onClick={handleDelete}
+                className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            >
+                Elimina
+            </button>
 </div>
 
     );

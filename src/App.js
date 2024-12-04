@@ -8,6 +8,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import { AuthProvider } from './servers/AuthContext.js';
 import Dashboard from './pages/Dashboard.jsx';
+import DashboardCosti from './pages/DashboardCosti.jsx';
 
 function App() {
   return (
@@ -17,10 +18,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/dashboardcosti" element={<DashboardCosti />} />
           { <Route path="/login" element={<Login />} />}
           {<Route path="/register" element={<Register />} /> }
           {<Route path="/dashboard" element={<Dashboard />} /> }
           {/* Aggiungi una route di fallback per percorsi non trovati */}
+
         </Routes>
         <Footer />
       </AuthProvider>

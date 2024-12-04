@@ -25,6 +25,12 @@ function Navbar() {
                 <strong>Fixed Expenses   |</strong>
             </h3>
         </Link>
+        <Link 
+            to="/dashboardcosti"
+            className="text-sm md:text-lg rounded dark:shadow-none font-bold leading-none text-black dark:text-white"
+        >
+           Dashboard Costi 
+        </Link>
 
     </div>
 
